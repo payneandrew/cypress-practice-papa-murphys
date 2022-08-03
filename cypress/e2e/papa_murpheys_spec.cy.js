@@ -37,10 +37,19 @@ describe('Papa Murphys spec', () => {
     );
   });
 
-  it('When a user searches for a pickup location that has results, the results are displayed', () => {
+  it('When a user searches for Vancouver, Washington as the pickup location, the first element contains Vancouver, Washington and 5 elements are displayed', () => {
     cy.get('#onetrust-accept-btn-handler').click();
     cy.get('#pick-up-input').type('Vancouver, Washington');
-    cy.get('#react-tabs-1').should('contain', 'Vancouver');
+    cy.get('[class=pac-item]').eq(0).should('contain', 'Vancouver').and('contain', 'Washington');
+    cy.get('[class=pac-item]').and('have.length', 5);
+  });
+
+
+  it('When a user searches for Vancouver, Washington as the pickup location, the first element contains Butte, MT and 5 elements are displayed', () => {
+    cy.get('#onetrust-accept-btn-handler').click();
+    cy.get('#pick-up-input').type('Butte');
+    cy.get('[class=pac-item]').eq(0).should('contain', 'Butte').and('contain', 'MT');
+    cy.get('[class=pac-item]').and('have.length', 5);
   });
 
 

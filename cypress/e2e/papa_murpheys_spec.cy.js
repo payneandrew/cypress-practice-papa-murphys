@@ -40,9 +40,7 @@ describe('Papa Murphys spec', () => {
   it('When a user searches for a pickup location that has results, the results are displayed', () => {
     cy.get('#onetrust-accept-btn-handler').click();
     cy.get('#pick-up-input').type('Vancouver, Washington');
-
-    cy.get('#react-tabs-1').click();
-    //cy.get('#react-tabs-1').should('contain', 'Vancouver');
+    cy.get('#react-tabs-1').should('contain', 'Vancouver');
   });
 
 

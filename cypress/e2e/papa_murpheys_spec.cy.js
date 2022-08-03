@@ -65,8 +65,8 @@ describe('Papa Murphys spec', () => {
     cy.get('#onetrust-accept-btn-handler').click();
     cy.get('#pick-up-input').type('Charlottesville');
     cy.get('.pac-item').eq(0).click();
-    cy.get('.store-card').should('have.length', 0);
     cy.get('[data-cy="side-panel-message-body"]').should('contain', 'Sorry, we couldn’t find any locations near your search. Please try searching again in a different area.');
+    cy.get('.store-card').should('have.length', 0);
   });
 
 

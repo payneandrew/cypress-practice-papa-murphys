@@ -26,20 +26,21 @@ const getOneTrustConsent = () => {
   return `isIABGlobal=false&datestamp=${getOneTrustDateStamp()}&version=6.3.0&landPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0004%3A1%2CSPD_BG%3A1&hosts=`;
 };
 
+const VW = "Vancouver, Washington";
+
+
 describe('Papa Murphys spec', () => {
 
   beforeEach(() => {
-    cy.visit('https://test-www.papamurphys.com/order/')
-
     cy.setCookie("OptanonAlertBoxClosed", new Date().toISOString()).setCookie(
       "OptanonConsent",
       getOneTrustConsent()
     );
+    cy.visit('https://test-www.papamurphys.com/order/')
   });
 
   it('When a user searches for Vancouver, Washington as the pickup location, the first element contains Vancouver, Washington and 5 elements are displayed', () => {
-    cy.get('#onetrust-accept-btn-handler').click();
-    cy.get('#pick-up-input').type('Vancouver, Washington');
+    cy.get('#pick-up-input').type(VW);
 
     cy.get('.pac-item').eq(0).should('contain', 'Vancouver').and('contain', 'Washington');
     cy.get('.pac-item').and('have.length', 5);
@@ -50,8 +51,7 @@ describe('Papa Murphys spec', () => {
   });
 
 
-  it('When a user searches for Vancouver, Washington as the pickup location, the first element contains Butte, MT and 5 elements are displayed', () => {
-    cy.get('#onetrust-accept-btn-handler').click();
+  it('When a user searches for Butte, MT as the pickup location, the first element contains Butte, MT and 5 elements are displayed', () => {
     cy.get('#pick-up-input').type('Butte');
     cy.get('.pac-item').eq(0).should('contain', 'Butte').and('contain', 'MT');
     cy.get('.pac-item').and('have.length', 5);
@@ -62,11 +62,17 @@ describe('Papa Murphys spec', () => {
   });
 
   it('When a user searches for Charlottesville, no locations display', () => {
-    cy.get('#onetrust-accept-btn-handler').click();
     cy.get('#pick-up-input').type('Charlottesville');
     cy.get('.pac-item').eq(0).click();
     cy.get('[data-cy="side-panel-message-body"]').should('contain', 'Sorry, we couldn’t find any locations near your search. Please try searching again in a different area.');
     cy.get('.store-card').should('have.length', 0);
+  });
+
+  it('When a 400 is returned, no results are displayed', () => {
+    cy.intercept('https://test-requests-api.papamurphys.com/restaurants/*', { statusCode: 500 }).as('getData');
+    cy.get('#pick-up-input').type(VW);
+    cy.get('.pac-item').eq(0).click();
+    cy.get('.store-card').should('not.exist');
   });
 
 

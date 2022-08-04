@@ -23,3 +23,8 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('inputTextFieldAndSelect', (text, index) => {
+    cy.get('#pick-up-input').type(text);
+    cy.get('.pac-item').eq(index).click();
+});

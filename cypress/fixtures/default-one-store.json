@@ -1,0 +1,365 @@
+[
+    {
+      "id": 99236,
+      "name": "SS101 – PAPA MURPHY'S WT Testing",
+      "brand": "papamurphys",
+      "storename": "Papa Murphy's",
+      "telephone": "(360) 257-7277",
+      "streetaddress": "8000 NE Parkway Drive, Ste 350",
+      "crossstreet": "",
+      "city": "Vancouver",
+      "state": "WA",
+      "zip": "98662",
+      "country": "US",
+      "contextualpricing": null,
+      "latitude": 45.6552678,
+      "longitude": -122.5920096,
+      "utcoffset": -7,
+      "url": "https://papamurphys.olosandbox.com/menu/ss101-papa-murphys-lab-wa/",
+      "mobileurl": "https://papamurphys.olosandbox.com/menu/ss101-papa-murphys-lab-wa/",
+      "distance": 4.38,
+      "extref": "SS101",
+      "advanceonly": false,
+      "advanceorderdays": 0,
+      "supportscoupons": true,
+      "supportsloyalty": true,
+      "supportedcardtypes": "American Express/Discover/MasterCard/Visa",
+      "supportsmanualfire": false,
+      "candeliver": false,
+      "canpickup": true,
+      "supportscurbside": true,
+      "supportsdispatch": true,
+      "supportsdinein": false,
+      "deliveryarea": "TBD",
+      "minimumdeliveryorder": 0,
+      "minimumpickuporder": 0,
+      "maximumpayinstoreorder": 0,
+      "deliveryfee": 0,
+      "deliveryfeetiers": [],
+      "supportstip": true,
+      "supportsspecialinstructions": false,
+      "specialinstructionsmaxlength": 60,
+      "supportsguestordering": true,
+      "requiresphonenumber": true,
+      "supportsonlineordering": true,
+      "supportsnationalmenu": false,
+      "supportsfeedback": false,
+      "supportssplitpayments": true,
+      "slug": "ss101-papa-murphys-lab-wa",
+      "isavailable": true,
+      "iscurrentlyopen": true,
+      "supportsgrouporders": false,
+      "supportsproductrecipientnames": false,
+      "supportsbaskettransfers": true,
+      "allowhandoffchoiceatmanualfire": true,
+      "productrecipientnamelabel": "Name:",
+      "customerfacingmessage": "Handmade. Home Baked.\r\nTax is calculated on checkout page\r\n\r\nPlease add items to cart before using coupon and rewards.\r\n\r\nChanges to our online ordering system may have impacted your favorite or recent orders. Please review for accuracy! ",
+      "availabilitymessage": null,
+      "supportsdrivethru": true,
+      "showcalories": true,
+      "acceptsordersuntilclosing": true,
+      "acceptsordersbeforeopening": false,
+      "suggestedtippercentage": 15,
+      "customfields": [
+        {
+          "id": 130868,
+          "label": "Make",
+          "required": true,
+          "validationregex": "",
+          "qualificationcriteria": "CurbsidePickupOrdersOnly"
+        },
+        {
+          "id": 130869,
+          "label": "Model",
+          "required": true,
+          "validationregex": "",
+          "qualificationcriteria": "CurbsidePickupOrdersOnly"
+        },
+        {
+          "id": 130870,
+          "label": "Color",
+          "required": true,
+          "validationregex": "",
+          "qualificationcriteria": "CurbsidePickupOrdersOnly"
+        }
+      ],
+      "labels": [
+        { "key": "handoffmode_delivery", "value": "Delivery" },
+        {
+          "key": "handoffmode_dispatch",
+          "value": "Delivery – 3rd Party Drivers"
+        },
+        { "key": "handoffmode_pickup", "value": "Pickup" },
+        { "key": "handoffmode_curbside", "value": "Curbside" },
+        { "key": "handoffmode_drivethru", "value": "Drive-thru" },
+        { "key": "handoffmode_dinein", "value": "Dine In" },
+        { "key": "manual_fire_label", "value": "Check-in" },
+        {
+          "key": "thanks_curbsidepickup_instructions",
+          "value": "Your order has been confirmed. When you arrive, please let us know you’re here by touching the “I’m Here” button on the confirmation email and team member will bring your order to you."
+        },
+        {
+          "key": "thanks_counterpickup_instructions",
+          "value": "Go Straight to Order Pickup At the Counter & Tell a Crew Member You Ordered Online."
+        },
+        {
+          "key": "thanks_delivery_instructions",
+          "value": "Thanks for your order!"
+        },
+        {
+          "key": "thanks_dispatch_instructions",
+          "value": "Thanks for your order!"
+        },
+        {
+          "key": "thanks_drivethru_instructions",
+          "value": "Provide your name or order number to the attendant at drive-thru when you arrive."
+        },
+        {
+          "key": "thanks_dinein_instructions",
+          "value": "Thanks for your order!"
+        },
+        {
+          "key": "thanks_pickupinstructions",
+          "value": "Go Straight to Order Pickup At the Counter & Tell a Crew Member You Ordered Online."
+        }
+      ],
+      "metadata": null,
+      "supportedtimemodes": ["advance", "asap"],
+      "attributes": [],
+      "supportedcountries": ["US"],
+      "supportedarrivalmessagehandoffmodes": [],
+      "calendars": [
+        {
+          "label": null,
+          "type": "business",
+          "ranges": [
+            {
+              "start": "20220801 05:00",
+              "end": "20220801 22:00",
+              "weekday": "Mon"
+            },
+            {
+              "start": "20220802 05:00",
+              "end": "20220802 22:00",
+              "weekday": "Tue"
+            },
+            {
+              "start": "20220803 05:00",
+              "end": "20220803 22:00",
+              "weekday": "Wed"
+            },
+            {
+              "start": "20220804 05:00",
+              "end": "20220804 22:00",
+              "weekday": "Thu"
+            },
+            {
+              "start": "20220805 05:00",
+              "end": "20220805 22:00",
+              "weekday": "Fri"
+            },
+            {
+              "start": "20220806 05:00",
+              "end": "20220806 22:00",
+              "weekday": "Sat"
+            },
+            {
+              "start": "20220807 05:00",
+              "end": "20220807 22:00",
+              "weekday": "Sun"
+            },
+            {
+              "start": "20220808 05:00",
+              "end": "20220808 22:00",
+              "weekday": "Mon"
+            }
+          ]
+        },
+        {
+          "label": "Delivery",
+          "type": "delivery",
+          "ranges": [
+            {
+              "start": "20220801 00:00",
+              "end": "20220801 23:45",
+              "weekday": "Mon"
+            },
+            {
+              "start": "20220802 00:00",
+              "end": "20220802 23:45",
+              "weekday": "Tue"
+            },
+            {
+              "start": "20220803 00:00",
+              "end": "20220803 23:45",
+              "weekday": "Wed"
+            },
+            {
+              "start": "20220804 00:00",
+              "end": "20220804 23:45",
+              "weekday": "Thu"
+            },
+            {
+              "start": "20220805 00:00",
+              "end": "20220805 23:45",
+              "weekday": "Fri"
+            },
+            {
+              "start": "20220806 00:00",
+              "end": "20220806 23:45",
+              "weekday": "Sat"
+            },
+            {
+              "start": "20220807 00:00",
+              "end": "20220807 23:45",
+              "weekday": "Sun"
+            },
+            {
+              "start": "20220808 00:00",
+              "end": "20220808 23:45",
+              "weekday": "Mon"
+            }
+          ]
+        },
+        {
+          "label": "Curbside",
+          "type": "curbsidepickup",
+          "ranges": [
+            {
+              "start": "20220801 06:00",
+              "end": "20220801 21:00",
+              "weekday": "Mon"
+            },
+            {
+              "start": "20220802 16:30",
+              "end": "20220802 21:00",
+              "weekday": "Tue"
+            },
+            {
+              "start": "20220803 06:00",
+              "end": "20220803 21:00",
+              "weekday": "Wed"
+            },
+            {
+              "start": "20220804 06:00",
+              "end": "20220804 21:00",
+              "weekday": "Thu"
+            },
+            {
+              "start": "20220805 06:00",
+              "end": "20220805 21:00",
+              "weekday": "Fri"
+            },
+            {
+              "start": "20220806 06:00",
+              "end": "20220806 21:00",
+              "weekday": "Sat"
+            },
+            {
+              "start": "20220807 06:00",
+              "end": "20220807 21:00",
+              "weekday": "Sun"
+            },
+            {
+              "start": "20220808 06:00",
+              "end": "20220808 21:00",
+              "weekday": "Mon"
+            }
+          ]
+        },
+        {
+          "label": null,
+          "type": "drivethru",
+          "ranges": [
+            {
+              "start": "20220801 06:30",
+              "end": "20220801 21:30",
+              "weekday": "Mon"
+            },
+            {
+              "start": "20220802 06:30",
+              "end": "20220802 21:30",
+              "weekday": "Tue"
+            },
+            {
+              "start": "20220803 06:30",
+              "end": "20220803 21:30",
+              "weekday": "Wed"
+            },
+            {
+              "start": "20220804 06:30",
+              "end": "20220804 21:30",
+              "weekday": "Thu"
+            },
+            {
+              "start": "20220805 06:30",
+              "end": "20220805 21:30",
+              "weekday": "Fri"
+            },
+            {
+              "start": "20220806 06:30",
+              "end": "20220806 21:30",
+              "weekday": "Sat"
+            },
+            {
+              "start": "20220807 06:30",
+              "end": "20220807 21:30",
+              "weekday": "Sun"
+            },
+            {
+              "start": "20220808 06:30",
+              "end": "20220808 21:30",
+              "weekday": "Mon"
+            }
+          ]
+        },
+        {
+          "label": "Delivery – 3rd Party Drivers",
+          "type": "dispatch",
+          "ranges": [
+            {
+              "start": "20220801 05:00",
+              "end": "20220801 22:00",
+              "weekday": "Mon"
+            },
+            {
+              "start": "20220802 16:30",
+              "end": "20220802 22:00",
+              "weekday": "Tue"
+            },
+            {
+              "start": "20220803 05:00",
+              "end": "20220803 22:00",
+              "weekday": "Wed"
+            },
+            {
+              "start": "20220804 05:00",
+              "end": "20220804 22:00",
+              "weekday": "Thu"
+            },
+            {
+              "start": "20220805 05:00",
+              "end": "20220805 22:00",
+              "weekday": "Fri"
+            },
+            {
+              "start": "20220806 05:00",
+              "end": "20220806 22:00",
+              "weekday": "Sat"
+            },
+            {
+              "start": "20220807 05:00",
+              "end": "20220807 22:00",
+              "weekday": "Sun"
+            },
+            {
+              "start": "20220808 05:00",
+              "end": "20220808 22:00",
+              "weekday": "Mon"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  

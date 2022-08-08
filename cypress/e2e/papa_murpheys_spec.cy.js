@@ -36,11 +36,9 @@ describe('Papa Murphys spec', () => {
       "OptanonConsent",
       getOneTrustConsent()
     );
-    cy.fixture(Cypress.env('nearBody') ?? 'default.json').then((data)=> {myData = data}).as('data');
+    cy.fixture(Cypress.env('nearBody') ?? 'default-three-stores.json').then((data)=> {myData = data}).as('data');
 
-    cy.intercept('**/restaurants/near*', (req) => {
-      req.reply({statusCode: Cypress.env('nearStatusCode') ?? 200, fixture: Cypress.env('nearBody') ?? 'default.json'})
-    }).as('getData');
+    cy.interceptRestaurantsNearEndpoint().as('getData');
 
     cy.visit('https://test-www.papamurphys.com/order/')
   });
@@ -68,8 +66,7 @@ describe('Papa Murphys spec', () => {
   });
 
   it('When a 400 is returned, no results are displayed', {env: {nearStatusCode: 400, nearBody: 'empty.json'}},() => {
-    cy.get('#pick-up-input').type(VW);
-    cy.get('.pac-item').eq(0).click().wait('@getData');
+    cy.inputTextFieldAndSelect(VW, 0).wait('@getData');
     cy.get('.store-card').should('not.exist');
   });
 

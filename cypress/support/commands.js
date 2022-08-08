@@ -28,3 +28,9 @@ Cypress.Commands.add('inputTextFieldAndSelect', (text, index) => {
     cy.get('#pick-up-input').type(text);
     cy.get('.pac-item').eq(index).click();
 });
+
+Cypress.Commands.add('interceptRestaurantsNearEndpoint', () => {
+    cy.intercept('**/restaurants/near*', (req) => {
+        req.reply({statusCode: Cypress.env('nearStatusCode') ?? 200, fixture: Cypress.env('nearBody') ?? 'default-three-stores.json'})
+    })
+});

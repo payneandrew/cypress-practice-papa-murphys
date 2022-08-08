@@ -28,50 +28,45 @@ const getOneTrustConsent = () => {
 
 const VW = "Vancouver, Washington";
 
-
 describe('Papa Murphys spec', () => {
+  let myData = []
 
   beforeEach(() => {
     cy.setCookie("OptanonAlertBoxClosed", new Date().toISOString()).setCookie(
       "OptanonConsent",
       getOneTrustConsent()
     );
+    cy.fixture(Cypress.env('nearBody') ?? 'default-three-stores.json').then((data)=> {myData = data}).as('data');
+
+    cy.interceptRestaurantsNearEndpoint().as('getData');
+
     cy.visit('https://test-www.papamurphys.com/order/')
   });
 
   it('When a user searches for Vancouver, Washington as the pickup location, the first element contains Vancouver, Washington and 5 elements are displayed', () => {
-    cy.get('#pick-up-input').type(VW);
-
-    cy.get('.pac-item').eq(0).should('contain', 'Vancouver').and('contain', 'Washington');
-    cy.get('.pac-item').and('have.length', 5);
-
-    cy.get('.pac-item').eq(0).click();
-    cy.get('.store-card').should('have.length', 3);
-    cy.get('.store-card').eq(0).should('contain', "SS101 – PAPA MURPHY'S WT Testing");
+    cy.inputTextFieldAndSelect(VW, 0);
+    cy.get('.store-card').should('have.length', myData.length).each(($el, index) => {
+      cy.wrap($el).should('contain', myData[index].name);
+     });
   });
 
 
-  it('When a user searches for Butte, MT as the pickup location, the first element contains Butte, MT and 5 elements are displayed', () => {
-    cy.get('#pick-up-input').type('Butte');
-    cy.get('.pac-item').eq(0).should('contain', 'Butte').and('contain', 'MT');
-    cy.get('.pac-item').and('have.length', 5);
-
-    cy.get('.pac-item').eq(0).click();
-    cy.get('.store-card').should('have.length', 1);
-    cy.get('.store-card').eq(0).should('contain', "SS102 Willow Tree Papa Murphy’s Pizza Lab");
+  it('When a user searches for Butte, MT as the pickup location, the first element contains Butte, MT and 5 elements are displayed', {env: {nearBody: 'default-one-store.json'}}, () => {
+    cy.get('@data').then((data)=> {
+      cy.inputTextFieldAndSelect('Butte', 0);
+      cy.get('.store-card').should('have.length', data.length);
+      cy.get('.store-card').eq(0).should('contain', data[0].name);
+    }); 
   });
 
-  it('When a user searches for Charlottesville, no locations display', () => {
-    cy.get('#pick-up-input').type('Charlottesville');
-    cy.get('.pac-item').eq(0).click();
+  it('When a user searches for Charlottesville, no locations display', {env: {nearBody: 'empty.json'}}, () => {
+    cy.inputTextFieldAndSelect('Charlottesville', 0);
     cy.get('[data-cy="side-panel-message-body"]').should('contain', 'Sorry, we couldn’t find any locations near your search. Please try searching again in a different area.');
-    cy.get('.store-card').should('have.length', 0);
+    cy.get('.store-card').should('have.length', myData.length);
   });
 
-  it('When a 400 is returned, no results are displayed', () => {
-    cy.intercept('https://test-requests-api.papamurphys.com/restaurants/*', { statusCode: 500 }).as('getData');
-    cy.get('#pick-up-input').type(VW);
-    cy.get('.pac-item').eq(0).click();
+  it('When a 400 is returned, no results are displayed', {env: {nearStatusCode: 400, nearBody: 'empty.json'}},() => {
+    cy.inputTextFieldAndSelect(VW, 0).wait('@getData');
     cy.get('.store-card').should('not.exist');
   });
 
